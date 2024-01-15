@@ -5,27 +5,25 @@ body {
 }
 
 .container {
-  display: flex;
+  display: grid;
+  gap: 10px;
   height: 100vh;
-  justify-content: center;
-  flex-direction: column;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(2, 100px);
+  background-color: lightblue;
+  place-content: center;
 }
 
 .box {
-  height: 100px;
-  color: white;
-  font-size: 24px;
+  background-color: tomato;
   display: flex;
+  color: white;
+  font-size: 18px;
   justify-content: center;
   align-items: center;
 }
 
-.box:first-child {
-  background-color: tomato;
-  flex: 1 0 500px;
+.box:nth-child(6) {
 }
-
 .box:last-child {
-  background-color: teal;
-  flex-grow: 1;
 }
