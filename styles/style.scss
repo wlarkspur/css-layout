@@ -1,40 +1,128 @@
-$breakpoint-sm: 480px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 1024px;
-$breakpoint-xl: 1200px;
-
-@mixin smallDevice {
-  @media screen and (min-width: $breakpoint-sm) {
-    @content;
-  }
-}
-@mixin mediumDevice {
-  @media screen and (min-width: $breakpoint-md) {
-    @content;
-  }
-}
-@mixin largeDevice {
-  @media screen and (min-width: $breakpoint-lg) {
-    @content;
-  }
-}
-@mixin xlDevice {
-  @media screen and (min-width: $breakpoint-xl) {
-    @content;
-  }
-}
+@import "./reset.scss";
 
 body {
-  @include smallDevice {
-    background-color: blue;
+  background: #dce6d1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.phone {
+  background-color: black;
+  border-radius: 50px;
+  height: 95%;
+  width: 420px;
+  padding: 50px 20px;
+  box-sizing: border-box;
+}
+
+.header {
+  overflow-x: hidden;
+  .header__list {
+    display: flex;
+    color: white;
+    gap: 10px;
+    width: max-content;
+
+    .header__list-item {
+      border: 1px solid rgba($color: #fff, $alpha: 0.5);
+      padding: 10px;
+      border-radius: 20px;
+    }
+    .header__list-item--inverted {
+      background-color: white;
+      color: black;
+    }
   }
-  @include mediumDevice {
-    background-color: red;
-  }
-  @include largeDevice {
-    background-color: purple;
-  }
-  @include xlDevice {
-    background-color: pink;
+}
+
+.cards {
+  margin: 20px 0px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+
+  .cards__card {
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: space-between;
+
+    .card__title {
+      font-size: 28px;
+    }
+    .card__footer-percent {
+      /* background-color: #5a5d62; */
+
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      span {
+        color: white;
+      }
+      .percent {
+        display: flex;
+        width: 100%;
+        height: 5px;
+        .left {
+          background-color: white;
+          width: 63%;
+          height: 6px;
+          border-radius: 3px 0 0 3px;
+        }
+        .right {
+          background-color: #54575c;
+          width: 37%;
+          height: 6px;
+          border-radius: 0 3px 3px 0;
+        }
+      }
+    }
+    .card__footer {
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        border-radius: 20px;
+        padding: 5px 8px;
+        border: 1px solid black;
+      }
+      .price {
+        background-color: #ffdd2c;
+      }
+      .length {
+        background-color: white;
+      }
+    }
+    &:first-child {
+      background-color: #292d33;
+      border: 1px solid white;
+      .card__title {
+        color: white;
+      }
+    }
+    &:nth-child(2) {
+      background-color: #f5f3f0;
+    }
+    &:nth-child(3) {
+      background-color: #f8fdb9;
+    }
+    &:nth-child(4) {
+      background-color: #bcabf8;
+    }
+    &:nth-child(5) {
+      background-color: #fcd4d4;
+    }
+    &:nth-child(6) {
+      background-color: #cffedd;
+    }
+    &:nth-child(3n) {
+      grid-column: span 2;
+    }
   }
 }
