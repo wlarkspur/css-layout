@@ -1,7 +1,9 @@
 @import "./reset.scss";
 
+$gray: #babebe;
+
 body {
-  background: #dce6d1;
+  background-color: #babebe;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,120 +11,106 @@ body {
 }
 
 .phone {
-  background-color: black;
-  border-radius: 50px;
-  height: 95%;
-  width: 420px;
-  padding: 50px 20px;
-  box-sizing: border-box;
+  width: 480px;
+  height: 90%;
+  border-radius: 10px;
+  background-color: #c6caca;
+  box-shadow: 5px 10px 10px rgba(#000000, 0.5);
 }
 
 .header {
-  overflow-x: hidden;
-  .header__list {
-    display: flex;
-    color: white;
-    gap: 10px;
-    width: max-content;
+  padding: 50px 15px 20px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .header__title {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
 
-    .header__list-item {
-      border: 1px solid rgba($color: #fff, $alpha: 0.5);
-      padding: 10px;
-      border-radius: 20px;
-    }
-    .header__list-item--inverted {
-      background-color: white;
-      color: black;
+.total {
+  background-color: black;
+  padding: 30px 15px;
+  color: $gray;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-weight: bold;
+  gap: 10px;
+
+  .total__price {
+    font-size: 36px;
+  }
+  .total__subtitle {
+    font-size: 18px;
+  }
+}
+
+.items {
+  background-color: #a3a7a7;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  .item {
+    border-top: 5px solid black;
+    position: relative;
+    .item__info {
+      background-color: #c6caca;
+      padding: 30px 15px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: flex-start;
+      .item__info-col {
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        &:nth-child(2) {
+          align-items: flex-end;
+        }
+        .item_title {
+          font-size: 45px;
+        }
+        .item_subtitle {
+          font-size: 14px;
+        }
+        .item__total-price {
+          font-size: 36px;
+        }
+        .item__piece-price {
+          font-size: 18px;
+        }
+      }
     }
   }
 }
 
-.cards {
-  margin: 20px 0px;
+.item__specs {
+  border-top: 4px solid black;
+  border-bottom: 4px solid black;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-
-  .cards__card {
-    background-color: white;
-    padding: 10px;
-    border-radius: 15px;
+  grid-template-columns: repeat(auto-fill, 140px);
+  background-color: #c6caca;
+  .spec {
+    padding: 25px;
+    font-weight: bold;
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    justify-content: space-between;
+    justify-content: center;
 
-    .card__title {
-      font-size: 28px;
-    }
-    .card__footer-percent {
-      /* background-color: #5a5d62; */
-
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      span {
-        color: white;
-      }
-      .percent {
-        display: flex;
-        width: 100%;
-        height: 5px;
-        .left {
-          background-color: white;
-          width: 63%;
-          height: 6px;
-          border-radius: 3px 0 0 3px;
-        }
-        .right {
-          background-color: #54575c;
-          width: 37%;
-          height: 6px;
-          border-radius: 0 3px 3px 0;
-        }
-      }
-    }
-    .card__footer {
-      font-size: 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      span {
-        border-radius: 20px;
-        padding: 5px 8px;
-        border: 1px solid black;
-      }
-      .price {
-        background-color: #ffdd2c;
-      }
-      .length {
-        background-color: white;
-      }
-    }
-    &:first-child {
-      background-color: #292d33;
-      border: 1px solid white;
-      .card__title {
-        color: white;
-      }
-    }
-    &:nth-child(2) {
-      background-color: #f5f3f0;
-    }
-    &:nth-child(3) {
-      background-color: #f8fdb9;
-    }
-    &:nth-child(4) {
-      background-color: #bcabf8;
-    }
-    &:nth-child(5) {
-      background-color: #fcd4d4;
-    }
-    &:nth-child(6) {
-      background-color: #cffedd;
-    }
-    &:nth-child(3n) {
-      grid-column: span 2;
+    &:last-child {
+      border-left: 4px solid black;
     }
   }
+}
+
+.item__photo {
+  position: absolute;
+  width: 35%;
+  height: 60%;
+  border: 4px solid black;
+  right: 15px;
+  bottom: 0px;
+  object-fit: cover;
 }
