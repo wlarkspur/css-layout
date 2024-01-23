@@ -18,7 +18,7 @@ body {
   grid-template-columns: 1fr 1.3fr;
   background-color: $black;
   color: $black;
-  /* gap: 2px; */
+  gap: 2px;
 }
 
 .info {
@@ -144,7 +144,7 @@ body {
 
 .stats {
   display: grid;
-  border-left: 2px solid $black;
+  /* border-left: 2px solid $black; */
   grid-template-rows: 2fr 1fr 1.5fr 2.5fr 3.5fr;
   color: black;
   .stats__stat {
